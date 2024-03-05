@@ -54,7 +54,7 @@
                         </a>
 
                         <!-- Card -->
-                        <a href="">
+                        <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'topup-modal')">
                             <div class="flex p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                                 <div class="w-10 h-10 p-2 mr-4 text-white bg-blue-100 rounded-full dark:text-white dark:bg-blue-500"
                                     style="background-color: #0c3147">
@@ -126,4 +126,43 @@
             </div>
         </div>
     </div>
+
+    <x-modal class="m-4" name="topup-modal" :show="$errors->isNotEmpty()" focusable>
+        <form id="topup" action="{{ route('stripeSession') }}" onsubmit="return checkPayment()" method="post">
+            @csrf
+            <div class="m-6">
+                <x-input-label for="payment_method" value="{{ __('message.mPayment') }}"
+                    class="text-gray-900 dark:text-gray-100" />
+
+                <select name="payment_method" id="payment_method" required
+                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
+                    <option value="">{{ __('Choisir une méthode de paiement') }}</option>
+                    <option value="stripe">{{ __('message.vCard') }}</option>
+                    <option value="kkiapay">{{ __('Mobile Money') }}</option>
+                    <option value="interac">{{ __('Interac') }}</option>
+                </select>
+
+                <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />
+            </div>
+
+            <div class="m-6">
+                <x-input-label for="amount" value="{{ __('message.amount') . ' ' . Auth::user()->currency }}"
+                    class="text-gray-900 dark:text-gray-100" />
+
+                <x-text-input id="amount" name="amount" type="number" class="mt-1 block w-full" required />
+
+                <x-input-error :messages="$errors->get('amount')" class="mt-2" />
+            </div>
+
+            <div class="m-6 flex justify-end">
+                <x-danger-button type="button" x-on:click="$dispatch('close')">
+                    {{ __('message.cancel') }}
+                </x-danger-button>
+
+                <x-primary-button class="ms-3">
+                    {{ __('message.confirm') }}
+                </x-primary-button>
+            </div>
+        </form>
+    </x-modal>
 </x-app-layout>

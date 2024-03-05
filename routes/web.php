@@ -31,7 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::get('deposit', [DepositController::class, 'index'])->name('deposit.index');
     Route::get('transfert', [CashoutController::class, 'index'])->name('transfert.index');
     Route::get('withdrawal', [WithdrawalController::class, 'index'])->name('withdrawal.index');
-    
+
+    Route::post('/stripeSession', [DepositController::class, 'stripeSession'])->name('stripeSession');
+    Route::get('/success', [DepositController::class, 'success'])->name('success');
+
     Route::get('/uuid', [UUIDController::class, 'show'])->name('uuid');
     Route::get('/print', [UUIDController::class, 'print'])->name('uuid.print');
 
