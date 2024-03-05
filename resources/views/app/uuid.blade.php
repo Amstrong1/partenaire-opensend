@@ -6,7 +6,7 @@
 
                     <div class="text-white bg-gray-800 col-span-10">
                         <div id="balancex">{{ __('UUID') }}</div>
-                        <div id="balance" class="hidden">{{ __("$ " . Auth::user()->openid) }}</div>
+                        <div id="balance" class="hidden">{{ __(Auth::user()->openid) }}</div>
                         <input type="hidden" id="uuid" value="{{ Auth::user()->openid }}">
                     </div>
 
@@ -35,21 +35,20 @@
                     </div>
                 </div>
 
-                {{-- <div class="p-6 text-white grid grid-cols-12 items-center">
-
+                <div class="mt-4 p-6 text-white grid grid-cols-12 items-center">
                     <div class="text-white bg-gray-800 col-span-11">
-                        <div id="balancex">{{ __('UUID') }}</div>
-                        <div id="balance" class="hidden">{{ __("$ " . Auth::user()->openid) }}</div>
+                        <div id="" class="flex justify-center">{{ $qrcode }}</div>
                         <input type="hidden" id="uuid" value="{{ Auth::user()->openid }}">
                     </div>
 
                     <div>
-                        <button onclick="copy()" style="background-color: #ee273b"
-                            class="p-2 rounded text-white w-full">
-                            <p>{{ __('print') }}</p>
-                        </button>
+                        <a href="">
+                            <button style="background-color: #ee273b" class="p-2 rounded text-white w-full">
+                                <p>{{ __('Print') }}</p>
+                            </button>
+                        </a>
                     </div>
-                </div> --}}
+                </div>
             </div>
 
             <div class="overflow-hidden shadow-sm rounded-lg mx-4">

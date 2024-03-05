@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UUIDController;
+use App\Http\Controllers\CashoutController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WithdrawalController;
@@ -26,12 +28,12 @@ Route::get('/done', function () {
 })->name('done');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('withdrawal', WithdrawalController::class);
-    Route::resource('deposit', DepositController::class);
-
-    Route::get('/uuid', function () {
-        return view('app.uuid');
-    });
+    Route::get('deposit', [DepositController::class, 'index'])->name('deposit.index');
+    Route::get('transfert', [CashoutController::class, 'index'])->name('transfert.index');
+    Route::get('withdrawal', [WithdrawalController::class, 'index'])->name('withdrawal.index');
+    
+    Route::get('/uuid', [UUIDController::class, 'show'])->name('uuid');
+    Route::get('/print', [UUIDController::class, 'print'])->name('uuid.print');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

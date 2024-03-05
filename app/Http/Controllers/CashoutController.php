@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Withdrawal;
+use App\Models\Cashout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class WithdrawalController extends Controller
+class CashoutController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $withdrawals = Withdrawal::where('user_id', Auth::id())->get();
-        return view('app.withdrawal', compact('withdrawals'));
+        $cashouts = Cashout::where('user_id', Auth::id())->get();
+        return view('app.transfert', compact('cashouts'));
     }
 
     /**
@@ -36,7 +36,7 @@ class WithdrawalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Withdrawal $withdrawal)
+    public function show(Cashout $cashout)
     {
         //
     }
@@ -44,7 +44,7 @@ class WithdrawalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Withdrawal $withdrawal)
+    public function edit(Cashout $cashout)
     {
         //
     }
@@ -52,7 +52,7 @@ class WithdrawalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Withdrawal $withdrawal)
+    public function update(Request $request, Cashout $cashout)
     {
         //
     }
@@ -60,7 +60,7 @@ class WithdrawalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Withdrawal $withdrawal)
+    public function destroy(Cashout $cashout)
     {
         //
     }

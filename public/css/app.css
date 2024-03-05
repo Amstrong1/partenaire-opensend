@@ -701,6 +701,9 @@ select {
   white-space: nowrap;
   border-width: 0;
 }
+.collapse {
+  visibility: collapse;
+}
 .static {
   position: static;
 }
@@ -958,6 +961,9 @@ select {
 }
 .basis-\[100\%\] {
   flex-basis: 100%;
+}
+.border-collapse {
+  border-collapse: collapse;
 }
 .origin-top {
   transform-origin: top;
