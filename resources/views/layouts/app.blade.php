@@ -34,24 +34,15 @@
             </div>
         </header>
 
-
-        <!-- Page Heading -->
-        {{-- @if (isset($header))
-            <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif --}}
-
         <!-- Page Content -->
         <div class="w-full min-h-screen pt-16 md:pt-30 lg:pt-40 mb-0 dark:bg-gray-900">
             {{ $slot }}
-        </main>
+            </main>
 
-        <footer class="fixed bottom-0 w-full">
-            @include('layouts.nav-bottom')
-        </footer>
+            <footer class="fixed bottom-0 w-full">
+                @include('layouts.nav-bottom')
+            </footer>
+        </div>
     </div>
 
 
@@ -68,6 +59,58 @@
             });
             document.getElementById(dropdownID).classList.toggle("hidden");
             document.getElementById(dropdownID).classList.toggle("block");
+        }
+    
+        function showBalance() {
+            document.getElementById('view1').classList.add("hidden");
+            document.getElementById('view2').classList.remove("hidden");
+            document.getElementById('balance').classList.remove("hidden");
+            document.getElementById('balancex').classList.add("hidden");
+        }
+
+        function hideBalance() {
+            document.getElementById('view1').classList.remove("hidden");
+            document.getElementById('view2').classList.add("hidden");
+            document.getElementById('balance').classList.add("hidden");
+            document.getElementById('balancex').classList.remove("hidden");
+        }
+
+        function checkPayment() {
+            if (document.getElementById('payment_method').value == 'kkiapay') {
+                // openKkiapayWidget({
+                //     amount: document.getElementById('amount').value,
+                //     position: "right",
+                //     callback: "success",
+                //     data: "",
+                //     theme: "",
+                //     sandbox: "true",
+                //     key: "298dba30723511ec9f5205a1aca9c042"
+                // })
+                return false;
+            }
+            if (document.getElementById('payment_method').value == 'stripe') {
+                return true;
+            }
+        }
+
+        // function replace() {
+        //     window.location.replace('/interac');
+        // }
+
+        function copy() {
+            // Sélectionne le contenu de la div
+            var uuid = document.getElementById('uuid');
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(uuid);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            // Copie le contenu sélectionné dans le presse-papiers
+            document.execCommand('copy');
+
+            // Désélectionne le texte après la copie
+            selection.removeAllRanges();
         }
     </script>
 </body>
