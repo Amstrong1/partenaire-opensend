@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
         <h1 class="text-center text-black dark:text-white uppercase">{{ __('message.transfert') }}</h1>
-        <form action="{{ route('send.store') }}" method="post">
+        <form action="{{ route('transfert.store') }}" method="post">
             @csrf
             <div class="mt-4">
                 <x-input-label for="amount" :value="__('message.amount')" />
