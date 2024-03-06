@@ -14,7 +14,7 @@ class CashoutController extends Controller
     public function index()
     {
         $cashouts = Cashout::where('user_id', Auth::id())->get();
-        return view('app.transfert', compact('cashouts'));
+        return view('app.history.transfert', compact('cashouts'));
     }
 
     /**

@@ -7,7 +7,6 @@
                     <div class="text-white bg-gray-800 col-span-10">
                         <div id="balancex">{{ __('UUID') }}</div>
                         <div id="balance" class="hidden">{{ __(Auth::user()->openid) }}</div>
-                        <input type="hidden" id="uuid" value="{{ Auth::user()->openid }}">
                     </div>
 
                     <div class="font-bold">
@@ -27,11 +26,11 @@
                     </div>
 
                     <div>
-                        <p class="hidden">{{ __('Copied') }}</p>
                         <button onclick="copy()" style="background-color: #ee273b"
                             class="p-2 rounded text-white w-full">
                             <p>{{ __('message.copy') }}</p>
                         </button>
+                        <p id="toast" class="hidden">{{ __('Copied') }}</p>
                     </div>
                 </div>
 

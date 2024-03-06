@@ -12,7 +12,7 @@ class DepositController extends Controller
 {
     public function index() {
         $deposits = Deposit::where('user_id', Auth::id())->get();
-        return view('app.deposit', compact('deposits'));
+        return view('app.history.deposit', compact('deposits'));
     }
 
     public function stripeSession(Request $request)

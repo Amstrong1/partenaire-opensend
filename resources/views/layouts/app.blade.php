@@ -62,7 +62,7 @@
             document.getElementById(dropdownID).classList.toggle("hidden");
             document.getElementById(dropdownID).classList.toggle("block");
         }
-    
+
         function showBalance() {
             document.getElementById('view1').classList.add("hidden");
             document.getElementById('view2').classList.remove("hidden");
@@ -95,13 +95,9 @@
             }
         }
 
-        // function replace() {
-        //     window.location.replace('/interac');
-        // }
-
         function copy() {
             // Sélectionne le contenu de la div
-            var uuid = document.getElementById('uuid');
+            var uuid = document.getElementById('balance');
             var selection = window.getSelection();
             var range = document.createRange();
             range.selectNodeContents(uuid);
@@ -113,6 +109,12 @@
 
             // Désélectionne le texte après la copie
             selection.removeAllRanges();
+
+            // Afficher un message de confirmation
+            document.getElementById('toast').classList.remove('hidden');
+            setTimeout(function() {
+                document.getElementById('toast').classList.add('hidden');
+            }, 1000);
         }
     </script>
 </body>

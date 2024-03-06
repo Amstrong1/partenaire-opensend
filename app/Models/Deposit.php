@@ -11,4 +11,14 @@ class Deposit extends Model
 
     protected $table = 'recharges';
 
+    protected $append = ['formatted_date'];
+
+    /**
+     * @return string
+     */
+    public function getFormattedDateAttribute()
+    {
+        return getFormattedDateHour($this->created_at);
+    }
+
 }

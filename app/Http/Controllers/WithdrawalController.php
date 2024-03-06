@@ -14,7 +14,7 @@ class WithdrawalController extends Controller
     public function index()
     {
         $withdrawals = Withdrawal::where('user_id', Auth::id())->get();
-        return view('app.withdrawal', compact('withdrawals'));
+        return view('app.history.withdrawal', compact('withdrawals'));
     }
 
     /**
