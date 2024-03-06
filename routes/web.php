@@ -6,6 +6,8 @@ use App\Http\Controllers\UUIDController;
 use App\Http\Controllers\CashoutController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SendMoneyController;
+use App\Http\Controllers\TransfertValidation;
 use App\Http\Controllers\WithdrawalController;
 
 /*
@@ -34,6 +36,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/stripeSession', [DepositController::class, 'stripeSession'])->name('stripeSession');
     Route::get('/success', [DepositController::class, 'success'])->name('success');
+
+    Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
+    Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
+
+    Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
 
     Route::get('/uuid', [UUIDController::class, 'show'])->name('uuid');
     Route::get('/print', [UUIDController::class, 'print'])->name('uuid.print');
