@@ -52,7 +52,7 @@
         </x-nav-link>
     </li>
 
-    <li class="mx-1 static" data-te-nav-item-ref>
+    {{-- <li class="mx-1 static" data-te-nav-item-ref>
         <x-nav-link
             class="dark:text-white text-black flex items-center whitespace-nowrap py-1 transition duration-150 ease-in-out hover:text-black focus:text-black dark:hover:text-white dark:focus:text-white"
             href="#" active="" data-te-ripple-init data-te-ripple-color="light">
@@ -64,7 +64,7 @@
             &nbsp;
             Validation
         </x-nav-link>
-    </li>
+    </li> --}}
 
     <li class="mx-1 static" data-te-nav-item-ref>
         <x-nav-link

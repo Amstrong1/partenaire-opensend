@@ -3,10 +3,10 @@
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg mx-4 text-center">
             <div class="p-6 text-white">
                 @if (count($cashouts) > 0)
-                <table class="w-full">
-                    <thead>
+                    <table class="w-full">
+                        <thead>
                             <tr
-                                class="text-left text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
+                                class="text-left text-xs text-gray-900 uppercase bg-gray-200 dark:bg-gray-900 dark:text-gray-400">
                                 <th class="w-1/3 p-2">{{ __('message.amount') }}</th>
                                 <th class="w-1/3 p-2">{{ __('message.receiver') }}</th>
                                 <th class="w-1/3 p-2">{{ __('message.cause') }}</th>
@@ -25,7 +25,7 @@
                         </tbody>
                     </table>
                 @else
-                    <span class="dark:text-white">{{ __('message.empty') }}</span>
+                    <span class="text-black dark:text-white">{{ __('message.empty') }}</span>
                 @endif
             </div>
         </div>

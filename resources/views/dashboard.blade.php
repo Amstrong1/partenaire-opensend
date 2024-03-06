@@ -11,7 +11,7 @@
                     <!-- Cards -->
                     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                         <!-- Card -->
-                        <div class="flex p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 items-center">
+                        <div class="flex p-4 bg-gray-200 rounded-lg shadow-xs dark:bg-gray-800 items-center">
                             <div class="w-10 h-10 p-2 mr-4 text-white bg-blue-100 rounded-full dark:text-white dark:bg-blue-500"
                                 style="background-color: #0c3147">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -46,7 +46,7 @@
                         </div>
                         <!-- Card -->
                         <a href="/uuid">
-                            <div class="flex p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 items-center">
+                            <div class="flex p-4 bg-gray-200 rounded-lg shadow-xs dark:bg-gray-800 items-center">
                                 <div class="w-10 h-10 p-2 mr-4 text-white bg-blue-100 rounded-full dark:text-white dark:bg-blue-500"
                                     style="background-color: #0c3147">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -68,7 +68,7 @@
                         <!-- Card -->
                         <a href="#" x-data=""
                             x-on:click.prevent="$dispatch('open-modal', 'topup-modal')">
-                            <div class="flex p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 items-center">
+                            <div class="flex p-4 bg-gray-200 rounded-lg shadow-xs dark:bg-gray-800 items-center">
                                 <div class="w-10 h-10 p-2 mr-4 text-white bg-blue-100 rounded-full dark:text-white dark:bg-blue-500"
                                     style="background-color: #0c3147">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -89,7 +89,7 @@
 
                         <!-- Card -->
                         <a href="{{ route('transfert.create') }}">
-                            <div class="flex p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 items-center">
+                            <div class="flex p-4 bg-gray-200 rounded-lg shadow-xs dark:bg-gray-800 items-center">
                                 <div class="w-10 h-10 p-2 mr-4 text-white bg-blue-100 rounded-full dark:text-white dark:bg-blue-500"
                                     style="background-color: #0c3147">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -111,7 +111,7 @@
 
                         <!-- Card -->
                         <a href="{{ route('withdrawal.create') }}">
-                            <div class="flex p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 items-center">
+                            <div class="flex p-4 bg-gray-200 rounded-lg shadow-xs dark:bg-gray-800 items-center">
                                 <div class="w-10 h-10 p-2 mr-4 text-white bg-blue-100 rounded-full dark:text-white dark:bg-blue-500"
                                     style="background-color: #0c3147">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
