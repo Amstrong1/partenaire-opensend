@@ -11,7 +11,7 @@ class Message extends Model
 
     protected $guarded = [];
 
-    protected $table = 'massages';
+    protected $table = 'messages';
 
     protected $append = ['replier'];
 

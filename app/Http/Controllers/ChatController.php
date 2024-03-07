@@ -35,7 +35,7 @@ class ChatController extends Controller
             $admin->notify(new NewMessageNotify($user, $message));
         }
 
-        // broadcast(new \App\Events\MessageSent($user, $message))->toOthers();
+        broadcast(new \App\Events\MessageSent($user, $message))->toOthers();
 
         return response()->json(['status' => 'Message Sent!']);
     }

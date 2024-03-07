@@ -47,6 +47,8 @@
     </div>
     
     @include('sweetalert::alert')
+    
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 

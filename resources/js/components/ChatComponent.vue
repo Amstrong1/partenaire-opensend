@@ -9,7 +9,7 @@
                     v-if="message.reply !== null">{{ message.reply }}</div>
             </div>
         </div>
-        <div class="fixed left-0 right-0 bottom-20 rounded w-full bg-gray-100 dark:bg-gray-900 mx-1">
+        <div class="rounded w-full bg-gray-100 dark:bg-gray-900 mx-1">
             <div class="flex items-center justify-center w-full">
                 <input class="bg-transparent w-10/12 p-2 rounded-lg" v-model="newMessage" placeholder="Type your message">
                 <div class="flex items-center justify-center w-2/12">
@@ -31,6 +31,8 @@
 import { ref, onMounted } from 'vue';
 import Echo from 'laravel-echo';
 import axios from 'axios';
+import Pusher from 'pusher-js';
+window.Pusher = Pusher;
 
 const messages = ref([]);
 const newMessage = ref('');
