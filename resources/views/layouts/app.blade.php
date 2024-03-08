@@ -37,7 +37,7 @@
         </header>
 
         <!-- Page Content -->
-        <div class="w-full min-h-screen pt-16 md:pt-30 lg:pt-40 mb-0 dark:bg-gray-900">
+        <div class="w-full min-h-screen pt-16 md:pt-30 lg:pt-40 mb-10 dark:bg-gray-900">
             {{ $slot }}
             </main>
 
