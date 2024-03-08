@@ -50,7 +50,7 @@ class MoneySendNotification extends Notification
     {
         return [
             'message' => Lang::get('message.sent') . $this->data['amount'] . Lang::get('message.of') . $this->data['receiver'],
-            'link' => 'history',
+            'link' => 'transfert.index',
         ];
     }
 }

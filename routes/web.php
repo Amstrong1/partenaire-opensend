@@ -3,12 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\UUIDController;
 use App\Http\Controllers\CashoutController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WithDrawController;
-use App\Http\Controllers\SendMoneyController;
 use App\Http\Controllers\TransfertValidation;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\ConfirmInteracController;
@@ -24,38 +23,43 @@ use App\Http\Controllers\ConfirmInteracController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified']);
+Route::middleware('setLocale')->group(function () {
 
-Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified']);
 
-Route::get('/done', function () {
-    return view('success');
-})->name('done');
+    Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('deposit', [DepositController::class, 'index'])->name('deposit.index');
+    Route::get('/done', function () {
+        return view('success');
+    })->name('done');
 
-    Route::resource('transfert', CashoutController::class);
+    Route::post('/language', [LangController::class, 'index'])->name('language');
 
-    Route::resource('withdrawal', WithdrawalController::class);
+    Route::middleware('auth')->group(function () {
+        Route::get('deposit', [DepositController::class, 'index'])->name('deposit.index');
 
-    Route::post('/stripeSession', [DepositController::class, 'stripeSession'])->name('stripeSession');
-    Route::get('/success', [DepositController::class, 'success'])->name('success');
+        Route::resource('transfert', CashoutController::class);
 
-    Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
+        Route::resource('withdrawal', WithdrawalController::class);
 
-    Route::post('/interac-confirm', [ConfirmInteracController::class, 'store'])->name('interac-confirm');
+        Route::post('/stripeSession', [DepositController::class, 'stripeSession'])->name('stripeSession');
+        Route::get('/success', [DepositController::class, 'success'])->name('success');
 
-    Route::get('/uuid', [UUIDController::class, 'show'])->name('uuid');
-    Route::get('/print', [UUIDController::class, 'print'])->name('uuid.print');
+        Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::post('/interac-confirm', [ConfirmInteracController::class, 'store'])->name('interac-confirm');
 
-    Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-    Route::get('/messages', [ChatController::class, 'fetchMessages']);
-    Route::post('/messages', [ChatController::class, 'sendMessage']);
+        Route::get('/uuid', [UUIDController::class, 'show'])->name('uuid');
+        Route::get('/print', [UUIDController::class, 'print'])->name('uuid.print');
+
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+        Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+        Route::get('/messages', [ChatController::class, 'fetchMessages']);
+        Route::post('/messages', [ChatController::class, 'sendMessage']);
+    });
 });
 
 require __DIR__ . '/auth.php';

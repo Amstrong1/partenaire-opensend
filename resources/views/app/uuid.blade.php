@@ -4,7 +4,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg mx-4 text-center">
                 <div class="p-6 text-white grid grid-cols-12 items-center">
 
-                    <div class="text-white bg-gray-800 col-span-10">
+                    <div class="text-black bg-white dark:text-white dark:bg-gray-800 col-span-10">
                         <div id="balancex">{{ __('UUID') }}</div>
                         <div id="balance" class="hidden">{{ __(Auth::user()->openid) }}</div>
                     </div>
@@ -34,8 +34,8 @@
                     </div>
                 </div>
 
-                <div class="mt-4 p-6 text-white grid grid-cols-12 items-center">
-                    <div class="text-white bg-gray-800 col-span-11">
+                <div class="mt-4 p-6 grid grid-cols-12 items-center">
+                    <div class="text-black bg-white dark:text-white dark:bg-gray-800 col-span-11">
                         <div id="" class="flex justify-center">{{ $qrcode }}</div>
                         <input type="hidden" id="uuid" value="{{ Auth::user()->openid }}">
                     </div>

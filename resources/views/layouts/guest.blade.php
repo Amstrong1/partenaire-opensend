@@ -15,6 +15,7 @@
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
+    @laravelPWA
 </head>
 
 <body class="font-sans antialiased ease-in-out motion-reduce:transition-none bg-left-top bg-cover bg-no-repeat"

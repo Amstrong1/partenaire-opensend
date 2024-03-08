@@ -50,7 +50,7 @@ class MoneyReceivedNotification extends Notification
     {
         return [
             'message' => Lang::get('message.received') . $this->data['amount'] . Lang::get('message.of') . $this->data['sender'],
-            'link' => 'history',
+            'link' => 'deposit.index',
         ];
     }
 }
