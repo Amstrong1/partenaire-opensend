@@ -7,6 +7,7 @@ use App\Http\Controllers\LangController;
 use App\Http\Controllers\UUIDController;
 use App\Http\Controllers\CashoutController;
 use App\Http\Controllers\DepositController;
+use App\Http\Controllers\InteracController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransfertValidation;
 use App\Http\Controllers\WithdrawalController;
@@ -47,6 +48,8 @@ Route::middleware('setLocale')->group(function () {
 
         Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
 
+        Route::get('/interac', [InteracController::class, 'create'])->name('interac.create');
+        Route::post('/interac', [InteracController::class, 'store'])->name('interac.store');
         Route::post('/interac-confirm', [ConfirmInteracController::class, 'store'])->name('interac-confirm');
 
         Route::get('/uuid', [UUIDController::class, 'show'])->name('uuid');

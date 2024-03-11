@@ -148,7 +148,9 @@
                     <option value="">{{ __('Choisir une méthode de paiement') }}</option>
                     <option value="stripe">{{ __('message.vCard') }}</option>
                     <option value="kkiapay">{{ __('Mobile Money') }}</option>
-                    <option value="interac">{{ __('Interac') }}</option>
+                    @if (Auth::user()->country === 'Canada')
+                        <option value="interac">{{ __('Interac') }}</option>
+                    @endif
                 </select>
 
                 <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />
