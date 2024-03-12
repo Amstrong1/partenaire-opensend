@@ -120,7 +120,7 @@ class RegisteredUserController extends Controller
         $fileName = time() . '.' . $request->cid->extension();
         // $path = $request->file('cid')->storeAs('images', $fileName, 'public');
 
-        $request->image->move(public_path('storage'), $fileName);
+        $request->cid->move(public_path('storage'), $fileName);
 
         $user = User::create([
             'name' => $request->name,
